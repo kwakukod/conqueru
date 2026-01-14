@@ -1,3 +1,8 @@
 node_modules/
 dist/
 .DS_Store
+node_modules/
+dist/
+.DS_Store
+conqueru-landing/node_modules/
+conqueru-landing/dist/
