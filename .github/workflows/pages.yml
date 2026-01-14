@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          # IMPORTANT: path is relative to REPO ROOT, not working-directory
           cache-dependency-path: conqueru-landing/package-lock.json
 
       - name: Install
@@ -51,6 +52,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
