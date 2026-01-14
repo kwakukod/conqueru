@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform, easeOut, easeInOut } from "framer-motion";
 import logo from "./assets/ConquerU-logo.jpg";
 import hero from "./assets/hero-3.png";
 import founder from "./assets/SH.jpg";
@@ -9,20 +9,7 @@ const BOOKING_URL = "https://www.conquerucoaching.com/book-online"; // :contentR
 function classNames(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
-
-const THEME = {
-  paper: "bg-[#F4F1EC]",
-  ink: "text-[#1F2937]",
-  navy: "text-[#0B2A4A]",
-  teal: "text-[#0F6A6B]",
-  amber: "bg-[#F59E0B]/70",
-  surface: "bg-white/25 border border-black/10",
-  surfaceHover: "hover:bg-white/35",
-  softBorder: "border border-black/10",
-  buttonPrimary: "bg-[#0B2A4A] text-white",
-  buttonAlt: "border border-black/15 text-black/80 hover:bg-black/5",
-  chip: "bg-white/10 border border-black/10 text-black/55",
-};
+ 
 
 export default function ConquerULanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,7 +55,7 @@ export default function ConquerULanding() {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 },
     show: shouldReduceMotion
       ? { opacity: 1 }
-      : { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+      : { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOut } },
   };
 
   const chipContainer = {
@@ -82,7 +69,7 @@ export default function ConquerULanding() {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 6, scale: 0.98 },
     show: shouldReduceMotion
       ? { opacity: 1 }
-      : { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: "easeOut" } },
+      : { opacity: 1, y: 0, scale: 1, transition: { duration: 0.35, ease: easeOut } },
   };
 
 
@@ -101,7 +88,7 @@ export default function ConquerULanding() {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 10 },
     show: shouldReduceMotion
       ? { opacity: 1 }
-      : { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+      : { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOut } },
   };
 
   // SECTION reveal on scroll
@@ -109,7 +96,7 @@ export default function ConquerULanding() {
     hidden: shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 18 },
     show: shouldReduceMotion
       ? { opacity: 1 }
-      : { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } },
+      : { opacity: 1, y: 0, transition: { duration: 0.65, ease: easeOut } },
   };
 
   const heroRef = useRef<HTMLElement | null>(null);
@@ -232,7 +219,7 @@ export default function ConquerULanding() {
             transition={
               shouldReduceMotion
                 ? undefined
-                : { duration: 10, repeat: Infinity, ease: "easeInOut" }
+                : { duration: 10, repeat: Infinity, ease: easeInOut }
             }
           />
 
@@ -551,7 +538,7 @@ export default function ConquerULanding() {
                   className="h-full w-full object-cover"
                   initial={{ scale: 1.05, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  transition={{ duration: 0.8, ease: easeOut }}
                   viewport={{ once: true }}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -582,7 +569,7 @@ export default function ConquerULanding() {
                 <motion.div
                   className="h-[3px] w-16 rounded-full bg-[#F59E0B]/70"
                   animate={shouldReduceMotion ? undefined : { opacity: [0.7, 1, 0.7], scaleX: [1, 1.08, 1] }}
-                  transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  transition={shouldReduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: easeInOut }}
                   style={{ transformOrigin: "left" }}
                 />
                 <span className="text-sm font-serif italic text-[#0F6A6B]/90">Founder, ConquerU</span>
@@ -625,7 +612,7 @@ export default function ConquerULanding() {
                 <motion.p
                   className="mt-3 text-sm font-serif italic leading-relaxed text-[#0B2A4A]"
                   animate={shouldReduceMotion ? undefined : { opacity: [0.92, 1, 0.92] }}
-                  transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  transition={shouldReduceMotion ? undefined : { duration: 8, repeat: Infinity, ease: easeInOut }}
                 >
                   “You don’t have to stay who you were to become who you’re called to be.
                   Growth is possible — and you don’t have to do it alone.”
