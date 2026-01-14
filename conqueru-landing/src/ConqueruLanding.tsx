@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, easeOut, easeInOut } from "framer-motion";
-import logo from "./assets/ConquerU-logo.jpg";
+import logo from "./assets/conqueru-logo.jpg";
 import hero from "./assets/hero-3.png";
 import founder from "./assets/SH.jpg";
 
