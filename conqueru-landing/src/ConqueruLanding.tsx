@@ -213,7 +213,8 @@ export default function ConquerULanding() {
           <motion.img
             src={hero}
             alt="Conqueru coaching"
-            className="absolute inset-0 h-full w-full object-cover object-left"
+            className="absolute inset-0 h-full w-full object-cover [object-position:25%_center] 
+            md:[object-position:left_center] contrast-[1.05] saturate-[1.03]"
             style={{ y: heroY, scale: heroScale }}
             animate={shouldReduceMotion ? undefined : { scale: [1, 1.02, 1] }}
             transition={
@@ -224,7 +225,13 @@ export default function ConquerULanding() {
           />
 
           {/* Readability wash */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#F4F1EC]/100 via-[#F4F1EC]/0 to-transparent" />
+          <div className="pointer-events-none absolute inset-0
+            bg-gradient-to-l from-[#F4F1EC]/90 via-[#F4F1EC]/10 to-transparent
+            md:bg-gradient-to-l
+            md:from-[#F4F1EC]/75
+            md:via-[#F4F1EC]/0
+            md:to-transparent"
+          />
 
           {/* Content frame */}
           <div className="relative mx-auto flex h-full w-full max-w-screen-xl items-center px-4 md:px-6">
@@ -302,19 +309,28 @@ export default function ConquerULanding() {
                     )
                   )}
                 </motion.div>
-
-                {/* Scroll cue */}
-                <motion.button
-                  variants={heroItem}
-                  type="button"
-                  onClick={() => scrollToId("#approach")}
-                  className="mt-10 inline-flex animate-bounce items-center gap-2 text-xs text-black/55 hover:text-black"
-                >
-                  <span aria-hidden>↓</span> Scroll
-                </motion.button>
               </motion.div>
             </div>
-          </div>
+          </div>     
+          
+          {/* Scroll cue - pinned to the hero viewport */}
+          <motion.button
+            type="button"
+            onClick={() => scrollToId("#approach")}
+            className="
+               absolute bottom-20 left-1/2 -translate-x-1/2
+               z-20
+               flex flex-col items-center gap-1
+               text-xs text-black/70
+               hover:text-black
+               "
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            >
+            <span aria-hidden className="text-lg animate-bounce">↓</span>
+            <span className="tracking-wide">Scroll</span>
+          </motion.button>
         </section>
 
 
